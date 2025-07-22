@@ -1,32 +1,169 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edest Academy</title>
   <style>
-    body {margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#333;}
-    header {background:#003366;color:#fff;text-align:center;padding:20px;}
-    header img {max-width:120px;border-radius:50%;display:block;margin:0 auto 10px;}
-    nav {background:#003366;display:flex;justify-content:center;gap:30px;padding:15px 0;position:sticky;top:0;z-index:1000;}
-    nav a {color:#fff;text-decoration:none;font-weight:bold;font-size:1.1em;padding:6px 12px;border-radius:4px;transition:background 0.3s;}
-    nav a:hover {background:#0055aa;}
-    .hero {background:url("banner.jpg") center/cover;height:400px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
-    .hero h1 {font-size:48px;background:rgba(0,0,0,0.5);padding:20px;border-radius:8px;}
-    section {margin:40px auto;max-width:900px;padding:0 20px;}
-    h2 {color:#003366;}
-    .about {background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.05);}
-    .team {display:flex;flex-wrap:wrap;gap:20px;justify-content:center;background:#e6f2ff;padding:20px;border-radius:8px;}
-    .card {background:#fff;padding:15px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);width:200px;text-align:center;}
-    .card img {width:100%;object-fit:cover;margin-bottom:10px;}
-    .toggle-button {background:#003366;color:#fff;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;margin-bottom:10px;}
-    .toggle-button:hover {background:#0055aa;}
-    form {padding:20px;border-radius:8px;border:2px solid #333;box-shadow:0 2px 5px rgba(0,0,0,0.05);max-width:700px;margin:20px auto;background:#fff;display:none;}
-    form label {display:block;margin:10px 0 5px;}
-    form input,form select {width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:4px;}
-    form button {background:#003366;color:#fff;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;}
-    form button:hover {background:#0055aa;}
-    footer {background:#003366;color:#ccc;text-align:center;padding:15px;font-size:0.9em;margin-top:40px;}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #C1C1C1; /* scarlet grey background */
+      color: #333;
+    }
+    header {
+      background: #228B22; /* greenforest */
+      color: #fff;
+      text-align: center;
+      padding: 10px 0; /* Reduced height */
+    }
+    header img {
+      max-width: 120px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    nav {
+      background: #003366;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #0055aa;
+    }
+    /* Full width banner below nav */
+    .full-width-image {
+      width: 100vw;
+      height: 30px; /* Adjust height as needed */
+      background: url('full-width-banner.jpg') center center/cover no-repeat;
+      margin: 0;
+    }
+    section {
+      margin: 40px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    /* Reduce top margin for .about to bring it closer to nav */
+    .about {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-top: 10px; /* reduced top margin */
+    }
+    .about ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .about ul li::before {
+      content: "✔ ";
+      color: green;
+    }
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      background: #e6f2ff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .toggle-button {
+      background: #003366;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .toggle-button:hover {
+      background: #0055aa;
+    }
+    form {
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #333;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      max-width: 700px;
+      margin: 20px auto;
+      display: none;
+      background-color: #2e7d32; /* Green background */
+      color: #fff;
+    }
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    form input[type="file"] {
+      background: #fff;
+      color: #000;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    form button {
+      background: #003366;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #0055aa;
+    }
+    #contact {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    footer {
+      background: #003366;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -35,65 +172,313 @@
     <h1>Edest Academy</h1>
     <p>Bush House, Jui Hanga, Freetown</p>
   </header>
+
   <nav>
     <a href="#about">About</a>
     <a href="#team">Our Team</a>
+    <a href="#nursery">Nursery</a>
+    <a href="#primary">Primary</a>
+    <a href="#secondary">Secondary</a>
     <a href="#forms">Forms</a>
     <a href="#contact">Contact Us</a>
   </nav>
-  <div class="hero"><h1>Welcome to Edest Academy</h1></div>
+
+  <!-- Full width banner image -->
+  <div class="full-width-image"></div>
+
   <section class="about" id="about">
-    <h2>Vision</h2>
-    <p>Educating children who will bring positive changes to their communities and to the nation.</p>
     <h2>Mission</h2>
     <p>We empower school children with quality education through Christ-centered learning.</p>
+
+    <h2>Vision</h2>
+    <p>Educating children who will bring positive changes to their communities and to the nation.</p>
+
     <h2>Core Values</h2>
-    <ul><li>✔ Fear God</li><li>✔ Hard Work</li><li>✔ Excellence</li><li>✔ Honesty</li></ul>
+    <ul>
+      <li>Fear God</li>
+      <li>Hard Work</li>
+      <li>Excellence</li>
+      <li>Honesty</li>
+    </ul>
   </section>
+
+  <!-- Our Team Section -->
   <section id="team">
     <h2>Our Team</h2>
     <div class="team">
-      <div class="card"><img src="tess.jpg" alt="Proprietor"><h3>Proprietor</h3><p>Brief description.</p></div>
-      <div class="card"><img src="tor.jpg" alt="Principal"><h3>Principal</h3><p>Brief description.</p></div>
-      <div class="card"><img src="stu.jpg" alt="Students"><h3>Students</h3><p>Smart and clever students.</p></div>
+      <div class="card">
+        <img src="tess.jpg" alt="Proprietor" />
+        <h3>Proprietor</h3>
+        <p>Brief description.</p>
+      </div>
+      <div class="card">
+        <img src="tor.jpg" alt="Principal" />
+        <h3>Principal</h3>
+        <p>Brief description.</p>
+      </div>
+      <div class="card">
+        <img src="stu.jpg" alt="Students" />
+        <h3>Students</h3>
+        <p>Smart and clever students.</p>
+      </div>
     </div>
   </section>
+
+  <!-- Nursery Section -->
+  <section id="nursery">
+    <h2>Nursery</h2>
+    <div class="team">
+      <div class="card">
+        <img src="nursery1.jpg" alt="Nursery Teacher 1" />
+        <h3>Teacher 1</h3>
+        <p>Experienced nursery teacher.</p>
+      </div>
+      <div class="card">
+        <img src="nursery2.jpg" alt="Nursery Teacher 2" />
+        <h3>Teacher 2</h3>
+        <p>Passionate about early childhood education.</p>
+      </div>
+      <div class="card">
+        <img src="nursery3.jpg" alt="Nursery Student" />
+        <h3>Nursery Students</h3>
+        <p>Happy and playful children.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Primary Section -->
+  <section id="primary">
+    <h2>Primary</h2>
+    <div class="team">
+      <div class="card">
+        <img src="primary1.jpg" alt="Primary Teacher 1" />
+        <h3>Teacher 1</h3>
+        <p>Experienced primary teacher.</p>
+      </div>
+      <div class="card">
+        <img src="primary2.jpg" alt="Primary Teacher 2" />
+        <h3>Teacher 2</h3>
+        <p>Dedicated to student success.</p>
+      </div>
+      <div class="card">
+        <img src="primary3.jpg" alt="Primary Students" />
+        <h3>Primary Students</h3>
+        <p>Active and bright learners.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary Section -->
+  <section id="secondary">
+    <h2>Secondary</h2>
+    <div class="team">
+      <div class="card">
+        <img src="secondary1.jpg" alt="Secondary Teacher 1" />
+        <h3>Teacher 1</h3>
+        <p>Experienced secondary teacher.</p>
+      </div>
+      <div class="card">
+        <img src="secondary2.jpg" alt="Secondary Teacher 2" />
+        <h3>Teacher 2</h3>
+        <p>Committed to academic excellence.</p>
+      </div>
+      <div class="card">
+        <img src="secondary3.jpg" alt="Secondary Students" />
+        <h3>Secondary Students</h3>
+        <p>Focused and motivated learners.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="forms">
     <h2>Forms</h2>
+
+    <!-- Student Application Form -->
     <button class="toggle-button" onclick="toggleForm('studentForm')">Student Application Form</button>
     <form id="studentForm">
       <h3>Motto: MASS AWARENESS AND PARTICIPATION</h3>
-      <label>Student Name:</label><input type="text">
-      <label>Date of Birth:</label><input type="text" placeholder="Month"><input type="number" placeholder="Year">
-      <label>Address:</label><input type="text">
-      <button type="submit">Submit</button>
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" name="studentName" required />
+
+      <label>Date of Birth:</label>
+      <input type="text" name="dob_month" placeholder="Month" style="width: 45%; display: inline-block; margin-right: 5%;" />
+      <input type="number" name="dob_year" placeholder="Year" style="width: 45%; display: inline-block;" />
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" />
+
+      <label for="classApplying">Class Applying For:</label>
+      <input type="text" id="classApplying" name="classApplying" required />
+
+      <label for="healthCondition">Any Known Health Condition:</label>
+      <input type="text" id="healthCondition" name="healthCondition" />
+
+      <label for="previousSchool">School Previously Attended:</label>
+      <input type="text" id="previousSchool" name="previousSchool" />
+
+      <h4>Parent/Guardian Information</h4>
+
+      <label>Father's Name:</label>
+      <input type="text" name="fatherName" />
+      <label>Mother's Name:</label>
+      <input type="text" name="motherName" />
+      <label>Guardian's Name:</label>
+      <input type="text" name="guardianName" />
+
+      <label>Guardian Address:</label>
+      <input type="text" name="guardianAddress" />
+
+      <label>Telephone:</label>
+      <input type="text" name="telephone" />
+
+      <!-- Approved and Signature side by side -->
+      <div style="display: flex; gap: 20px;">
+        <div style="flex: 1;">
+          <label>Approved By Proprietor:</label>
+          <input type="text" name="approvedProprietor" />
+        </div>
+        <div style="flex: 1;">
+          <label>Principal's Signature:</label>
+          <input type="text" name="principalSignature" />
+        </div>
+      </div>
+
+      <button type="submit">Submit Application</button>
     </form>
+
+    <!-- Fees Payment Form -->
     <button class="toggle-button" onclick="toggleForm('paymentForm')">Fees Payment Form</button>
     <form id="paymentForm">
-      <label>Student ID:</label><input type="text">
-      <label>Amount:</label><input type="number">
-      <label>Method:</label><select><option>Orange Money</option><option>Bank</option></select>
+      <label for="studentID">Student ID:</label>
+      <input type="text" id="studentID" name="studentID" required />
+
+      <label for="studentNamePayment">Student Name:</label>
+      <input type="text" id="studentNamePayment" name="studentNamePayment" required />
+
+      <label for="classPayment">Class:</label>
+      <input type="text" id="classPayment" name="classPayment" required />
+
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" name="amount" required />
+
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod" name="paymentMethod" required onchange="showAccountInfo()">
+        <option value="">Select Method</option>
+        <option value="bank">Sierra Leone Commercial Bank</option>
+      </select>
+
+      <div id="accountInfo" style="margin:10px 0; color:#000; font-weight:bold;"></div>
+
+      <label for="transactionID">Transaction ID:</label>
+      <input type="text" id="transactionID" name="transactionID" required />
+
       <button type="submit">Submit Payment</button>
     </form>
+
+    <!-- Teachers Application Form -->
     <button class="toggle-button" onclick="toggleForm('teacherForm')">Teachers Application Form</button>
-    <form id="teacherForm">
-      <label>Name:</label><input type="text">
-      <label>Position:</label><input type="text">
-      <label>Subject:</label><input type="text">
-      <button type="submit">Submit</button>
+    <form id="teacherForm" enctype="multipart/form-data">
+      <h3>EDEST ACADEMY SCHOOL<br>JUI, FREETOWN</h3>
+      <p><strong>MOTTO:</strong> Mass Awareness and Participation</p>
+
+      <label for="teacherPhoto">Upload Passport Photo:</label>
+      <input type="file" id="teacherPhoto" name="teacherPhoto" accept="image/*" />
+
+      <label>Surname:</label>
+      <input type="text" name="surname" required />
+
+      <label>First Name:</label>
+      <input type="text" name="firstName" required />
+
+      <label>Other Name:</label>
+      <input type="text" name="otherName" />
+
+      <label>Sex:</label>
+      <input type="text" name="sex" />
+
+      <label>Nationality:</label>
+      <input type="text" name="nationality" />
+
+      <label>Date of Birth:</label>
+      <input type="date" name="dob" />
+
+      <label>Address:</label>
+      <input type="text" name="address" />
+
+      <label>Email:</label>
+      <input type="email" name="email" />
+
+      <label>Telephone:</label>
+      <input type="text" name="telephone" />
+
+      <h4>Educational Background</h4>
+
+      <label>Name of Institution:</label>
+      <input type="text" name="institution" />
+
+      <label>Degree/Certificate:</label>
+      <input type="text" name="degree" />
+
+      <label>Major/Subject:</label>
+      <input type="text" name="major" />
+
+      <label>Year of Graduation:</label>
+      <input type="text" name="graduationYear" />
+
+      <h4>Teaching Experience</h4>
+
+      <label>Total years of teaching experience:</label>
+      <input type="text" name="yearsExperience" />
+
+      <label>Previous School/Institution worked at:</label>
+      <input type="text" name="previousSchool" />
+
+      <label>Subject/Class taught:</label>
+      <input type="text" name="subjectTaught" />
+
+      <label>Any Specialization/Certificate:</label>
+      <input type="text" name="specialization" />
+
+      <button type="submit">Submit Application</button>
     </form>
   </section>
+
   <section id="contact">
     <h2>Contact Us</h2>
     <p>📍 Bush House, Jui Hanga, Freetown</p>
-    <p>📞 Phone: +232 99991579</p>
+    <p>📞 Phone: +232 99-991-579</p>
     <p>📧 Email: info@edestacademy.org</p>
   </section>
-  <footer>&copy; 2025 Edest Academy. All rights reserved.</footer>
+
+  <footer>
+    &copy; 2025 Edest Academy. All rights reserved.
+  </footer>
+
   <script>
-    function toggleForm(id){
-      const form=document.getElementById(id);
-      form.style.display=form.style.display==='block'?'none':'block';
+    function toggleForm(id) {
+      const form = document.getElementById(id);
+      if (form.style.display === 'block') {
+        form.style.display = 'none';
+      } else {
+        // Hide other forms first
+        ['studentForm', 'paymentForm', 'teacherForm'].forEach(f => {
+          if (f !== id) {
+            document.getElementById(f).style.display = 'none';
+          }
+        });
+        form.style.display = 'block';
+        form.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function showAccountInfo() {
+      const method = document.getElementById('paymentMethod').value;
+      const infoDiv = document.getElementById('accountInfo');
+      if (method === 'bank') {
+        infoDiv.innerHTML = "Sierra Leone Commercial Bank<br>Account Name: Edest Academy<br>A/C Number: 0030161623191121111";
+      } else {
+        infoDiv.innerHTML = "";
+      }
     }
   </script>
 </body>
